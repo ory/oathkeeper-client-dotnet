@@ -1,11 +1,10 @@
-# Ory.Oathkeeper.Client.Model.OathkeeperHealthStatus
-HealthStatus health status
+# Ory.Oathkeeper.Client.Model.OathkeeperInlineResponse503
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | Status always contains \&quot;ok\&quot;. | [optional] 
+**Errors** | **Dictionary&lt;string, string&gt;** | Errors contains a list of errors that caused the not ready status. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

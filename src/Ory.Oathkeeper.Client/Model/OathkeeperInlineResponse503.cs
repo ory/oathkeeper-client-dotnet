@@ -27,27 +27,39 @@ using OpenAPIDateConverter = Ory.Oathkeeper.Client.Client.OpenAPIDateConverter;
 namespace Ory.Oathkeeper.Client.Model
 {
     /// <summary>
-    /// JSONWebKeySet JSONWebKeySet JSONWebKeySet JSONWebKeySet json web key set
+    /// OathkeeperInlineResponse503
     /// </summary>
-    [DataContract(Name = "jsonWebKeySet")]
-    public partial class OathkeeperJsonWebKeySet : IEquatable<OathkeeperJsonWebKeySet>, IValidatableObject
+    [DataContract(Name = "inline_response_503")]
+    public partial class OathkeeperInlineResponse503 : IEquatable<OathkeeperInlineResponse503>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OathkeeperJsonWebKeySet" /> class.
+        /// Initializes a new instance of the <see cref="OathkeeperInlineResponse503" /> class.
         /// </summary>
-        /// <param name="keys">The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired..</param>
-        public OathkeeperJsonWebKeySet(List<OathkeeperJsonWebKey> keys = default(List<OathkeeperJsonWebKey>))
+        [JsonConstructorAttribute]
+        protected OathkeeperInlineResponse503()
         {
-            this.Keys = keys;
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OathkeeperInlineResponse503" /> class.
+        /// </summary>
+        /// <param name="errors">Errors contains a list of errors that caused the not ready status. (required).</param>
+        public OathkeeperInlineResponse503(Dictionary<string, string> errors = default(Dictionary<string, string>))
+        {
+            // to ensure "errors" is required (not null)
+            if (errors == null) {
+                throw new ArgumentNullException("errors is a required property for OathkeeperInlineResponse503 and cannot be null");
+            }
+            this.Errors = errors;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired.
+        /// Errors contains a list of errors that caused the not ready status.
         /// </summary>
-        /// <value>The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired.</value>
-        [DataMember(Name = "keys", EmitDefaultValue = false)]
-        public List<OathkeeperJsonWebKey> Keys { get; set; }
+        /// <value>Errors contains a list of errors that caused the not ready status.</value>
+        [DataMember(Name = "errors", IsRequired = true, EmitDefaultValue = false)]
+        public Dictionary<string, string> Errors { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -62,8 +74,8 @@ namespace Ory.Oathkeeper.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OathkeeperJsonWebKeySet {\n");
-            sb.Append("  Keys: ").Append(Keys).Append("\n");
+            sb.Append("class OathkeeperInlineResponse503 {\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -85,15 +97,15 @@ namespace Ory.Oathkeeper.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OathkeeperJsonWebKeySet);
+            return this.Equals(input as OathkeeperInlineResponse503);
         }
 
         /// <summary>
-        /// Returns true if OathkeeperJsonWebKeySet instances are equal
+        /// Returns true if OathkeeperInlineResponse503 instances are equal
         /// </summary>
-        /// <param name="input">Instance of OathkeeperJsonWebKeySet to be compared</param>
+        /// <param name="input">Instance of OathkeeperInlineResponse503 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OathkeeperJsonWebKeySet input)
+        public bool Equals(OathkeeperInlineResponse503 input)
         {
             if (input == null)
             {
@@ -101,10 +113,10 @@ namespace Ory.Oathkeeper.Client.Model
             }
             return 
                 (
-                    this.Keys == input.Keys ||
-                    this.Keys != null &&
-                    input.Keys != null &&
-                    this.Keys.SequenceEqual(input.Keys)
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -118,9 +130,9 @@ namespace Ory.Oathkeeper.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Keys != null)
+                if (this.Errors != null)
                 {
-                    hashCode = (hashCode * 59) + this.Keys.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

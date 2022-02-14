@@ -27,27 +27,39 @@ using OpenAPIDateConverter = Ory.Oathkeeper.Client.Client.OpenAPIDateConverter;
 namespace Ory.Oathkeeper.Client.Model
 {
     /// <summary>
-    /// JSONWebKeySet JSONWebKeySet JSONWebKeySet JSONWebKeySet json web key set
+    /// OathkeeperInlineResponse2001
     /// </summary>
-    [DataContract(Name = "jsonWebKeySet")]
-    public partial class OathkeeperJsonWebKeySet : IEquatable<OathkeeperJsonWebKeySet>, IValidatableObject
+    [DataContract(Name = "inline_response_200_1")]
+    public partial class OathkeeperInlineResponse2001 : IEquatable<OathkeeperInlineResponse2001>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OathkeeperJsonWebKeySet" /> class.
+        /// Initializes a new instance of the <see cref="OathkeeperInlineResponse2001" /> class.
         /// </summary>
-        /// <param name="keys">The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired..</param>
-        public OathkeeperJsonWebKeySet(List<OathkeeperJsonWebKey> keys = default(List<OathkeeperJsonWebKey>))
+        [JsonConstructorAttribute]
+        protected OathkeeperInlineResponse2001()
         {
-            this.Keys = keys;
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OathkeeperInlineResponse2001" /> class.
+        /// </summary>
+        /// <param name="version">The version of Ory Oathkeeper. (required).</param>
+        public OathkeeperInlineResponse2001(string version = default(string))
+        {
+            // to ensure "version" is required (not null)
+            if (version == null) {
+                throw new ArgumentNullException("version is a required property for OathkeeperInlineResponse2001 and cannot be null");
+            }
+            this._Version = version;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired.
+        /// The version of Ory Oathkeeper.
         /// </summary>
-        /// <value>The value of the \&quot;keys\&quot; parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired.</value>
-        [DataMember(Name = "keys", EmitDefaultValue = false)]
-        public List<OathkeeperJsonWebKey> Keys { get; set; }
+        /// <value>The version of Ory Oathkeeper.</value>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
+        public string _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -62,8 +74,8 @@ namespace Ory.Oathkeeper.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OathkeeperJsonWebKeySet {\n");
-            sb.Append("  Keys: ").Append(Keys).Append("\n");
+            sb.Append("class OathkeeperInlineResponse2001 {\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -85,15 +97,15 @@ namespace Ory.Oathkeeper.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OathkeeperJsonWebKeySet);
+            return this.Equals(input as OathkeeperInlineResponse2001);
         }
 
         /// <summary>
-        /// Returns true if OathkeeperJsonWebKeySet instances are equal
+        /// Returns true if OathkeeperInlineResponse2001 instances are equal
         /// </summary>
-        /// <param name="input">Instance of OathkeeperJsonWebKeySet to be compared</param>
+        /// <param name="input">Instance of OathkeeperInlineResponse2001 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OathkeeperJsonWebKeySet input)
+        public bool Equals(OathkeeperInlineResponse2001 input)
         {
             if (input == null)
             {
@@ -101,10 +113,9 @@ namespace Ory.Oathkeeper.Client.Model
             }
             return 
                 (
-                    this.Keys == input.Keys ||
-                    this.Keys != null &&
-                    input.Keys != null &&
-                    this.Keys.SequenceEqual(input.Keys)
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -118,9 +129,9 @@ namespace Ory.Oathkeeper.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Keys != null)
+                if (this._Version != null)
                 {
-                    hashCode = (hashCode * 59) + this.Keys.GetHashCode();
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
