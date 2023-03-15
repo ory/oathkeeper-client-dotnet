@@ -1,11 +1,12 @@
-# Ory.Oathkeeper.Client.Model.OathkeeperInlineResponse500
+# Ory.Oathkeeper.Client.Model.OathkeeperGenericError
+The standard error format
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **long** |  | [optional] 
-**Details** | **List&lt;Object&gt;** |  | [optional] 
+**Details** | **List&lt;Dictionary&lt;string, Object&gt;&gt;** |  | [optional] 
 **Message** | **string** |  | [optional] 
 **Reason** | **string** |  | [optional] 
 **Request** | **string** |  | [optional] 
