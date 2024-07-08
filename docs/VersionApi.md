@@ -2,12 +2,11 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetVersion**](VersionApi.md#getversion) | **GET** /version | Get service version
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**GetVersion**](VersionApi.md#getversion) | **GET** /version | Get service version |
 
-
-<a name="getversion"></a>
+<a id="getversion"></a>
 # **GetVersion**
 > OathkeeperVersion GetVersion ()
 
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VersionApi.GetVersion: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VersionApi.GetVersion: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,9 +49,28 @@ namespace Example
 }
 ```
 
+#### Using the GetVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get service version
+    ApiResponse<OathkeeperVersion> response = apiInstance.GetVersionWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VersionApi.GetVersionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**OathkeeperVersion**](OathkeeperVersion.md)

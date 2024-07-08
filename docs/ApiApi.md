@@ -2,15 +2,14 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**Decisions**](ApiApi.md#decisions) | **GET** /decisions | Access Control Decision API
-[**GetRule**](ApiApi.md#getrule) | **GET** /rules/{id} | Retrieve a Rule
-[**GetWellKnownJSONWebKeys**](ApiApi.md#getwellknownjsonwebkeys) | **GET** /.well-known/jwks.json | Lists Cryptographic Keys
-[**ListRules**](ApiApi.md#listrules) | **GET** /rules | List All Rules
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**Decisions**](ApiApi.md#decisions) | **GET** /decisions | Access Control Decision API |
+| [**GetRule**](ApiApi.md#getrule) | **GET** /rules/{id} | Retrieve a Rule |
+| [**GetWellKnownJSONWebKeys**](ApiApi.md#getwellknownjsonwebkeys) | **GET** /.well-known/jwks.json | Lists Cryptographic Keys |
+| [**ListRules**](ApiApi.md#listrules) | **GET** /rules | List All Rules |
 
-
-<a name="decisions"></a>
+<a id="decisions"></a>
 # **Decisions**
 > void Decisions ()
 
@@ -43,8 +42,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ApiApi.Decisions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ApiApi.Decisions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -52,9 +51,25 @@ namespace Example
 }
 ```
 
+#### Using the DecisionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Access Control Decision API
+    apiInstance.DecisionsWithHttpInfo();
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ApiApi.DecisionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 void (empty response body)
@@ -80,7 +95,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrule"></a>
+<a id="getrule"></a>
 # **GetRule**
 > OathkeeperRule GetRule (string id)
 
@@ -115,8 +130,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ApiApi.GetRule: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ApiApi.GetRule: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -124,11 +139,31 @@ namespace Example
 }
 ```
 
+#### Using the GetRuleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Retrieve a Rule
+    ApiResponse<OathkeeperRule> response = apiInstance.GetRuleWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ApiApi.GetRuleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** |  |  |
 
 ### Return type
 
@@ -153,7 +188,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getwellknownjsonwebkeys"></a>
+<a id="getwellknownjsonwebkeys"></a>
 # **GetWellKnownJSONWebKeys**
 > OathkeeperJsonWebKeySet GetWellKnownJSONWebKeys ()
 
@@ -187,8 +222,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ApiApi.GetWellKnownJSONWebKeys: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ApiApi.GetWellKnownJSONWebKeys: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -196,9 +231,28 @@ namespace Example
 }
 ```
 
+#### Using the GetWellKnownJSONWebKeysWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Lists Cryptographic Keys
+    ApiResponse<OathkeeperJsonWebKeySet> response = apiInstance.GetWellKnownJSONWebKeysWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ApiApi.GetWellKnownJSONWebKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**OathkeeperJsonWebKeySet**](OathkeeperJsonWebKeySet.md)
@@ -221,7 +275,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listrules"></a>
+<a id="listrules"></a>
 # **ListRules**
 > List&lt;OathkeeperRule&gt; ListRules (long? limit = null, long? offset = null)
 
@@ -257,8 +311,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ApiApi.ListRules: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ApiApi.ListRules: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -266,12 +320,32 @@ namespace Example
 }
 ```
 
+#### Using the ListRulesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List All Rules
+    ApiResponse<List<OathkeeperRule>> response = apiInstance.ListRulesWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ApiApi.ListRulesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **long?**| The maximum amount of rules returned. | [optional] 
- **offset** | **long?**| The offset from where to start looking. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **long?** | The maximum amount of rules returned. | [optional]  |
+| **offset** | **long?** | The offset from where to start looking. | [optional]  |
 
 ### Return type
 

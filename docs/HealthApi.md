@@ -2,13 +2,12 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**IsInstanceAlive**](HealthApi.md#isinstancealive) | **GET** /health/alive | Check alive status
-[**IsInstanceReady**](HealthApi.md#isinstanceready) | **GET** /health/ready | Check readiness status
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**IsInstanceAlive**](HealthApi.md#isinstancealive) | **GET** /health/alive | Check alive status |
+| [**IsInstanceReady**](HealthApi.md#isinstanceready) | **GET** /health/ready | Check readiness status |
 
-
-<a name="isinstancealive"></a>
+<a id="isinstancealive"></a>
 # **IsInstanceAlive**
 > OathkeeperHealthStatus IsInstanceAlive ()
 
@@ -42,8 +41,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling HealthApi.IsInstanceAlive: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling HealthApi.IsInstanceAlive: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -51,9 +50,28 @@ namespace Example
 }
 ```
 
+#### Using the IsInstanceAliveWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check alive status
+    ApiResponse<OathkeeperHealthStatus> response = apiInstance.IsInstanceAliveWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling HealthApi.IsInstanceAliveWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**OathkeeperHealthStatus**](OathkeeperHealthStatus.md)
@@ -76,7 +94,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="isinstanceready"></a>
+<a id="isinstanceready"></a>
 # **IsInstanceReady**
 > OathkeeperHealthStatus IsInstanceReady ()
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling HealthApi.IsInstanceReady: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling HealthApi.IsInstanceReady: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,9 +137,28 @@ namespace Example
 }
 ```
 
+#### Using the IsInstanceReadyWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check readiness status
+    ApiResponse<OathkeeperHealthStatus> response = apiInstance.IsInstanceReadyWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling HealthApi.IsInstanceReadyWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**OathkeeperHealthStatus**](OathkeeperHealthStatus.md)
